@@ -1,0 +1,386 @@
+* {
+    font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif; /* add a default font-family to the doc*/
+}
+
+body{
+    padding: 0; /* padding = espace entre l'élement et sa bordure */
+    margin: 0; /* margin = espace entre l'élement mère et la bordure */
+}
+
+.page {
+    height: 100%; /* hauteur */
+}
+
+
+/* ! === HEADER STYLE === */
+
+
+.header {
+    padding: 5px;
+    padding-bottom: 15px; /*padding-bottom: espace aux dessus du bordure entre l'élement et sa bordure*/
+    margin: 0;
+    color: white; /* color of the font */
+    background-image: url("../images/header_background.jpeg"); /* adding an img background */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /*To allow using z-index*/
+    z-index: 1;
+    box-shadow: 0 3px 8px 2px dodgerblue;
+}
+
+.header {
+    display: table;
+}
+
+.header > * {
+    float: left;
+}
+
+.logo{
+    display: inline-block; /* pour permettre aux : logo, slogan, socialLink de rester sur la même ligne */
+    width: 200px; /* longeur */
+    margin: 5px;
+}
+
+.logo img {
+    width: 100%;
+    border-radius: 50%; /* to get a rounded border */
+    transition: 0.3s; /* transition betwenn this state with other state */
+    
+}
+
+.logo img:hover {
+    filter: invert(); /* invert the logo img */
+    box-shadow: 0 0 10px 5px black; /* adding a shadow (to make card effect, lighting effect) */
+}
+
+.slogan {
+   display: inline-block; /* pour permettre aux : logo, slogan, socialLink de rester sur la même ligne */
+   width: 45%;
+   height: 100%;
+   vertical-align: top; /* merci à khanie pour cette propriète, mec, si un jour tu révois ça, 
+   faudrait que tu me racontes comment t'as fait, moi, à l'heure où j'écris ceci, je l'aime vraiment. mais on connais tous l'histoire
+   l'un de vous finira par oublier l'autres. mais j'ai quand même envie de savoir juste au cas où si c'est toi qui a commis l'erreur de le laisser partir. */
+   padding: 50px;
+   font-size: x-large; /* adjust the size of the slogan to the largest */
+   font-weight: bold; /* make slogan bold */
+   font-family: 'Courier New', Courier, monospace !important; /* choose another font for slogan only with !important properties */
+   text-align: center;
+}
+
+.headerBlock3{
+    display: inline-flex; /* pour permettre aux : logo, slogan, socialLink de rester sur la même ligne */
+    align-content: center;
+    width: 30%;
+
+}
+.socialLink {
+    margin: 3px;
+    align-content: center;
+}
+
+.socialLink img {
+    margin: 7px; /* margin = espace entre l'élement mère et la bordure */
+    width: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+    filter: grayscale(); /* make all social link img to black and white */
+    transition: 0.3s;
+}
+
+.socialLink img:hover {
+    filter: none; /* give all social link img color */
+    transform: scale(1.2); /* transform the size of the img to 120% */
+    box-shadow: 0 0 8px 3px dodgerblue; /* x-pos y-pos darker darker-area color */
+}
+
+.topNav {
+    margin: 0;
+    padding: 0;
+}
+
+.topNav ul {
+    display: flex; /* to make all element direct childrenn havinf the flex-property [you can allign them easly] */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    justify-content: center; /* for vertical aligns */
+    }
+
+.topNav ul li {
+    list-style-type: none; /* delete the list style */
+    width: 18%; /* give a width to a button */
+    height: 100%; /* give the 100% height of the ul */
+}
+
+.topNav ul li a {
+    text-decoration: none; /* delete the link default underline */
+    display: inline-flex; /* to make the justify-content and align items working */
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: center; /* for vertical aligns */
+    align-items: center; /* for horizontal align */ /*ou l'inverse*/
+    transition: 0.5s;
+    border: 2px solid white;
+    
+}
+
+.topNav ul li:first-of-type a {
+    border-radius: 15px 0 0 15px;
+}
+.topNav ul li:last-of-type a {
+    border-radius: 0 15px 15px 0;
+}
+
+.topNav ul li a:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0px 0px 15px 2px white; /* x-pos y-pos blur-area size*/
+    position: relative;
+    z-index: 1;   
+}
+
+.topNav ul li#active a {
+    background-color: dodgerblue;
+    color: white;
+    box-shadow: 0 0 8px 2px white;
+    position: relative;
+    z-index: 1;
+}
+
+.topNav ul li#active a:hover{
+    color: black;
+    background-color: white;
+    position: relative;
+    z-index: 1;   
+}
+
+/* ! === BODY STYLE === */
+
+
+.body {
+    /* ID = 00
+    display: block; */
+    display: flex;
+    padding: 30px;
+    background-color: white
+}
+
+.sideNav {
+    width: 20%;
+    padding: 5px;
+    background-color: white;
+    display: flex; /* give a flex property to all sub-element */
+    flex-direction: row; /* give a linear direction to alligne all sub-element */
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 1); /* rgba (red (0 => 255),green,blue,alpha(0 => 1)) */
+    /* ID = 00
+    float = left; */
+}
+
+.sideNav ul {
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; /* give horizontal direction to sub-element under .sideNav ul */
+}
+
+.sideNav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+    height: 50px;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.sideNav a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: dodgerblue;
+    transition: 0.4s;
+}
+
+.sideNav a:hover {
+    color: dodgerblue;
+    background-color: white;
+    font-weight: bold;
+    border: 2px solid dodgerblue;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    height: 150vh;
+    overflow-y: scroll;
+    margin: 20px;
+    box-shadow: 0px 0px 5px 0px gray;
+    border-radius: 3px;
+    /* ID = 00
+    float = right; */
+}
+
+label {
+    display: block;
+    margin: 10px;
+}
+
+.container {
+    box-shadow: 0 0px 5px 0px rgba(0, 0, 0, 0.76);
+    transition: 0.3s;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.container:hover {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.76);
+}
+
+.container-header {
+    display: inline-block;
+    text-align: center;
+    background-color: dodgerblue;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.image-container {
+    height: 450px;
+    overflow: hidden; /* When the sub-element don't fit in the actual element */
+}
+
+.min {
+    height: 150px !important; /* This is applied for the img-container in case where there are so many section */
+}
+
+.container-content {
+    padding: 15px;
+}
+
+fieldset {
+    margin: 10px;
+}
+
+/* * ==== [FORMULAIRE] ==== * */
+
+form {
+    padding: 15px !important; /* padding = espace entre l'élement et sa bordure */
+    background-color: whitesmoke;
+    border-radius: 10px !important;
+}
+
+#formulaire {
+    box-shadow: 0 0px 8px 0px grey !important;
+    transition: 0.3s;
+}
+
+#formulaire:hover {
+    box-shadow: 0 0px 8px 0px dodgerblue !important;
+}
+
+input[type=text], input[type=email] , input[type=password], textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;  /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    min-height: 50px;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+input[type=text]:focus, input[type=email]:focus , textarea:focus, input[type=text]:hover, input[type=email]:hover , textarea:hover  {
+    box-shadow: 0 0 5px 2px dodgerblue;
+}
+
+.formButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+input[type=submit], input[type=reset] {
+    opacity: 0.5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin: 5px;
+    height: 50px;
+    transition: 0.3s;
+}
+
+input[type=submit] {
+    background-color: green;
+}
+
+input[type=reset] {
+    background-color: red;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+    opacity: 1;
+}
+
+
+/* ! === FOOTER STYLE === */
+
+
+.footer {
+    background-image: url("../images/footer_background.jpg");
+    background-size: cover; /* cover the width availlable space with the image */
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 -3px 8px 2px dodgerblue;
+}
+
+.badge {
+    display: inline-flex;
+    color: white;
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.php {
+    background-color: rgb(27, 104, 155);
+}
+
+.html {
+    background-image: linear-gradient(to left, rgb(240, 149, 88),rgb(240, 149, 88),rgb(250, 104, 7), rgb(250, 104, 7) ); /* define a linear gradient color */
+}
+
+.css {
+    background-image: linear-gradient(to left, rgb(87, 165, 201),rgb(87, 165, 201),rgb(4, 135, 196), rgb(4, 135, 196) ); /* linear-gradient (direction, color1, ... color2) */
+}
