@@ -15,23 +15,36 @@
 <body>
     <div class="page">
         <!--!En-tête de page-->
+        <div class="head">
+            <div class="header">
 
-        <div class="header">
+                <?php include '../header.php';?>
 
-            <?php include '../header.php';?>
-
+                <div class="userLogin" align="center">
+                    <div>
+                        <div>
+                            <img src="assets/images/avatar2.png" alt="<?php echo $_SESSION['userName'].'images';?>">
+                        </div>
+                        <div>
+                            <?php echo $_SESSION['userName'];?>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="btn-disconnect" type="submit" value="Disconnect"> 
+                    </div>
+                </div>
+            </div>
             <div class="topNav ">
                 <ul>
-                    <li id="active" ><a href="pages/home.php">Acceuil</a></li>
+                    <li  id="active" ><a href="pages/home.php">Acceuil</a></li>
                     <li><a href="pages/about.php">A-propos</a></li>
                     <li><a href="pages/speciality.php">Spécialité</a></li>
                     <li><a href="pages/contact.php">Contact</a></li>
                     <li><a href="pages/blog.php">Blog</a></li>
                 </ul>
             </div>
-
         </div>
-        
+
         <!--!Contenu du page-->
 
         <div class="body ">

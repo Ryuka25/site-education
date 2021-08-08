@@ -6,4 +6,4 @@
             </p>
             <p>
                 <span class="badge php" title="Langage Back-end">php</span> <span class="badge html" title="Langage Front-end">html</span> <span class="badge css" title="Langage Front-end">css</span>
-            </p>';
+            </p>

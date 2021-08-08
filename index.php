@@ -11,22 +11,24 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Acceuil - Site éducation</title>
 </head>
-<body>
+<body class="login">
     <div class="page">
         <!--!En-tête de page-->
 
-        <div class="header">
+        <div class="head">
+            <div class="header">
 
-            <?php include 'header.php';?>
+                <?php include './header.php';?>
 
+            </div>
         </div>
         
         <!--!Contenu du page-->
 
         <div class="body ">
-            <div class="content">
+            <div class="content loginPages">
                 <fieldset>
-                    <legend> Login pages</legend>
+                    <legend> Login pages </legend>
                     <?php
 
                         $userName = "username@domain.com";
