@@ -29,12 +29,13 @@
                         <div>
                             <?php echo $_SESSION['userName'];?>
                         </div>
+                        <div>
+                        <form action="assets/logout.php" method="POST">
+                            <input  class="btn-disconnect" type="submit" value="Disconnect">
+                        </form>
                     </div>
-                    <div>
-                        <input class="btn-disconnect" type="submit" value="Disconnect"> 
                     </div>
                 </div>
-                
             </div>
             <div class="topNav ">
                 <ul>

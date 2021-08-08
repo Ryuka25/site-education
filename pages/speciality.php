@@ -19,23 +19,24 @@
         <div class="head">
             <div class="header">
 
-                <?php include '../header.php';?>
+            <?php include '../header.php';?>
 
-                <div class="userLogin" align="center">
+            <div class="userLogin" align="center">
+                <div>
                     <div>
-                        <div>
-                            <img src="assets/images/avatar2.png" alt="<?php echo $_SESSION['userName'].'images';?>">
-                        </div>
-                        <div>
-                            <?php echo $_SESSION['userName'];?>
-                        </div>
+                        <img src="assets/images/avatar2.png" alt="<?php echo $_SESSION['userName'].'images';?>">
                     </div>
                     <div>
-                        <input class="btn-disconnect" type="submit" value="Disconnect"> 
+                        <?php echo $_SESSION['userName'];?>
+                    </div>
+                    <div>
+                        <form action="assets/logout.php" method="POST">
+                            <input  class="btn-disconnect" type="submit" value="Disconnect">
+                        </form>
                     </div>
                 </div>
-
             </div>
+        </div>
             <div class="topNav ">
                 <ul>
                     <li><a href="pages/home.php">Acceuil</a></li>

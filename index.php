@@ -29,20 +29,8 @@
             <div class="content loginPages">
                 <fieldset>
                     <legend> Login pages </legend>
-                    <?php
-
-                        $userName = "username@domain.com";
-                        $password = "password";
-                        
-                        if (isset($_POST) && (count($_POST) > 0)) {
-                            if (($_POST['userName'] == $userName) && ($_POST['password'] == $password)) {
-                                $_SESSION['userName'] = $_POST['userName'];
-                                header('location: ./pages/home.php');
-                            }
-                        }
-                    ?>
                     <div class="container"  id="menu_1">
-                        <form action="" method="post">
+                        <form action="assets/login.php" method="post">
                             <label for="userName"> Username </label>
                             <input type="text" name="userName" id="userName">
                             <label for="password"> Password</label>
