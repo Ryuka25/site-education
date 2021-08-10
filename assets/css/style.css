@@ -22,164 +22,166 @@ body{
     box-shadow: 0 2px 8px 2px dodgerblue;
     padding-bottom: 30px;
 }
-.header {
-    padding: 5px;
-    padding-bottom: 15px; /*padding-bottom: espace aux dessus du bordure entre l'élement et sa bordure*/
-    margin: 0;
-    color: white; /* color of the font */
-    position: relative; /*To allow using z-index*/
 
-}
+        .header {
+            padding: 5px;
+            padding-bottom: 15px; /*padding-bottom: espace aux dessus du bordure entre l'élement et sa bordure*/
+            margin: 0;
+            color: white; /* color of the font */
+            position: relative; /*To allow using z-index*/
 
-.header {
-    display: table;
-    width: 100%;
-}
-.header > * {
-    float: left;
-    width: 30%;
-    height: 100%;
-}
+        }
 
-.logo{
-    width: 200px; /* longeur */
-    margin: 5px;
-}
+        .header {
+            display: table;
+            width: 100%;
+        }
 
-.logo img {
-    width: 100%;
-    border-radius: 50%; /* to get a rounded border */
-    transition: 0.3s; /* transition betwenn this state with other state */
-    
-}
+                .header > * {
+                    float: left;
+                    width: 30%;
+                    height: 100%;
+                }
 
-.logo img:hover {
-    filter: invert(); /* invert the logo img */
-    box-shadow: 0 0 10px 5px black; /* adding a shadow (to make card effect, lighting effect) */
-}
+                .logo{
+                    width: 200px; /* longeur */
+                    margin: 5px;
+                }
 
-.slogan {
-   width: 45%;
-   height: 100%;
-   vertical-align: top; /* merci à khanie pour cette propriète, mec, si un jour tu révois ça, 
-   faudrait que tu me racontes comment t'as fait, moi, à l'heure où j'écris ceci, je l'aime vraiment. mais on connais tous l'histoire
-   l'un de vous finira par oublier l'autres. mais j'ai quand même envie de savoir juste au cas où si c'est toi qui a commis l'erreur de le laisser partir. */
-   padding: 50px;
-   font-size: x-large; /* adjust the size of the slogan to the largest */
-   font-weight: bold; /* make slogan bold */
-   font-family: 'Courier New', Courier, monospace !important; /* choose another font for slogan only with !important properties */
-   text-align: center;
-}
+                        .logo img {
+                            width: 100%;
+                            border-radius: 50%; /* to get a rounded border */
+                            transition: 0.3s; /* transition betwenn this state with other state */
+                            
+                        }
 
-.socialLink {
-    align-content: center;
-    
-}
+                            .logo img:hover {
+                                filter: invert(); /* invert the logo img */
+                                box-shadow: 0 0 10px 5px black; /* adding a shadow (to make card effect, lighting effect) */
+                            }
 
-.socialLink img {
-    margin: 7px; /* margin = espace entre l'élement mère et la bordure */
-    width: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    filter: grayscale(); /* make all social link img to black and white */
-    transition: 0.3s;
-}
+                .slogan {
+                width: 45%;
+                height: 100%;
+                vertical-align: top; /* merci à khanie pour cette propriète, mec, si un jour tu révois ça, 
+                faudrait que tu me racontes comment t'as fait, moi, à l'heure où j'écris ceci, je l'aime vraiment. mais on connais tous l'histoire
+                l'un de vous finira par oublier l'autres. mais j'ai quand même envie de savoir juste au cas où si c'est toi qui a commis l'erreur de le laisser partir. */
+                padding: 50px;
+                font-size: x-large; /* adjust the size of the slogan to the largest */
+                font-weight: bold; /* make slogan bold */
+                font-family: 'Courier New', Courier, monospace !important; /* choose another font for slogan only with !important properties */
+                text-align: center;
+                }
 
-.socialLink img:hover {
-    filter: none; /* give all social link img color */
-    transform: scale(1.2); /* transform the size of the img to 120% */
-    box-shadow: 0 0 8px 3px dodgerblue; /* x-pos y-pos darker darker-area color */
-}
+                .socialLink {
+                    align-content: center;
+                    
+                }
 
-.topNav {
-    margin: 0;
-    padding: 0;
-}   
+                        .socialLink img {
+                            margin: 7px; /* margin = espace entre l'élement mère et la bordure */
+                            width: 50px;
+                            border: 1px solid white;
+                            border-radius: 50%;
+                            filter: grayscale(); /* make all social link img to black and white */
+                            transition: 0.3s;
+                        }
 
-.topNav ul {
-    display: flex; /* to make all element direct childrenn havinf the flex-property [you can allign them easly] */
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 50px;
-    justify-content: center; /* for vertical aligns */
-}
+                                .socialLink img:hover {
+                                    filter: none; /* give all social link img color */
+                                    transform: scale(1.2); /* transform the size of the img to 120% */
+                                    box-shadow: 0 0 8px 3px dodgerblue; /* x-pos y-pos darker darker-area color */
+                                }
 
-.topNav ul li:first-of-type a {
-    border-radius: 15px 0 0 15px;
-}
-.topNav ul li:last-of-type a {
-    border-radius: 0 15px 15px 0;
-}   
+                .topNav {
+                    margin: 0;
+                    padding: 0;
+                }   
 
-.topNav ul li {
-    list-style-type: none; /* delete the list style */
-    width: 18%; /* give a width to a button */
-    height: 100%; /* give the 100% height of the ul */
-    margin: 1px;
-}
+                        .topNav ul {
+                            display: flex; /* to make all element direct childrenn havinf the flex-property [you can allign them easly] */
+                            padding: 0;
+                            margin: 0;
+                            width: 100%;
+                            height: 50px;
+                            justify-content: center; /* for vertical aligns */
+                        }
 
-.topNav ul li a {
-    text-decoration: none; /* delete the link default underline */
-    display: inline-flex; /* to make the justify-content and align items working */
-    width: 100%;
-    height: 100%;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.267);
-    text-align: center;
-    justify-content: center; /* for vertical aligns */
-    align-items: center; /* for horizontal align */ /*ou l'inverse*/
-    transition: 0.5s;  
-}
+                                        .topNav ul li:first-of-type a {
+                                            border-radius: 15px 0 0 15px;
+                                        }
+                                        .topNav ul li:last-of-type a {
+                                            border-radius: 0 15px 15px 0;
+                                        }   
 
-.topNav ul li a:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0px 0px 15px 2px white; /* x-pos y-pos blur-area size*/
-    position:relative;
-}
+                                .topNav ul li {
+                                    list-style-type: none; /* delete the list style */
+                                    width: 16%; /* give a width to a button */
+                                    height: 100%; /* give the 100% height of the ul */
+                                    margin: 1px;
+                                }
 
-.topNav ul li#active a {
-    background-color: dodgerblue;
-    color: white;
-    box-shadow: 0 0 8px 2px dodgerblue;
-    position: relative;
-    border: 2px solid white;
-    z-index: 1;
-}
+                                        .topNav ul li a {
+                                            text-decoration: none; /* delete the link default underline */
+                                            display: inline-flex; /* to make the justify-content and align items working */
+                                            width: 100%;
+                                            height: 100%;
+                                            color: white;
+                                            background-color: rgba(255, 255, 255, 0.267);
+                                            text-align: center;
+                                            justify-content: center; /* for vertical aligns */
+                                            align-items: center; /* for horizontal align */ /*ou l'inverse*/
+                                            transition: 0.5s;  
+                                        }
 
-.topNav ul li#active a:hover{
-    color: black;
-    background-color: white;
-    position: relative;
-    z-index: 1;  
-    box-shadow: 0px 0px 15px 2px white; /* x-pos y-pos blur-area size*/ 
-}
+                                                .topNav ul li a:hover {
+                                                    color: black;
+                                                    background-color: white;
+                                                    box-shadow: 0px 0px 15px 2px white; /* x-pos y-pos blur-area size*/
+                                                    position:relative;
+                                                }
 
-.userLogin img {
-    width: 100px;
-    border-radius: 50%;
-    border: 5px solid white;
-}
+                                                .topNav ul li#active a {
+                                                    background-color: dodgerblue;
+                                                    color: white;
+                                                    box-shadow: 0 0 8px 2px dodgerblue;
+                                                    position: relative;
+                                                    border: 2px solid white;
+                                                    z-index: 1;
+                                                }
 
-.userLogin > *:first-of-type {
-    padding-top: 10px;
+                                                        .topNav ul li#active a:hover{
+                                                            color: black;
+                                                            background-color: white;
+                                                            position: relative;
+                                                            z-index: 1;  
+                                                            box-shadow: 0px 0px 15px 2px white; /* x-pos y-pos blur-area size*/ 
+                                                        }
 
-}
+                        .userLogin img {
+                            width: 100px;
+                            border-radius: 50%;
+                            border: 5px solid white;
+                        }
 
-.userLogin {
-    margin-top: 5px;
-    border: 2px solid white;
-    border-radius: 15px;
-    color: white;
-    width: 20%;
-    box-shadow: 0 0 5px 2px dodgerblue;
-}
+                        .userLogin > *:first-of-type {
+                            padding-top: 10px;
 
-.btn-disconnect {
-    background-color: red !important;
-    border-radius: 15px;
-}
+                        }
+
+                .userLogin {
+                    margin-top: 5px;
+                    border: 2px solid white;
+                    border-radius: 15px;
+                    color: white;
+                    width: 20%;
+                    box-shadow: 0 0 5px 2px dodgerblue;
+                }
+
+                        .btn-disconnect {
+                            background-color: red !important;
+                            border-radius: 15px;
+                        }
 
 /* ! === BODY STYLE === */
 

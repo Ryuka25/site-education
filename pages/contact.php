@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if ($_SESSION['userName'] != ''):
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +46,7 @@
                     <li><a href="pages/speciality.php">Spécialité</a></li>
                     <li id="active" ><a href="pages/contact.php">Contact</a></li>
                     <li><a href="pages/blog.php">Blog</a></li>
+                    <li><a href="pages/cv.php">C_V</a></li>
                 </ul>
             </div>
         </div>
@@ -60,6 +62,7 @@
             </div>
 
             <div class="content">
+
                 <fieldset>
                     <?php
 
@@ -76,31 +79,91 @@
                     ';
                         echo
                     '
+                    
+                        <div class="container">
+                            <fieldset>
+                                <legend> MOT DU DIRECTEUR </legend>
+                                <div class="text-container">
+                                    <div class="container-content">
+                                        '.$descriptionPage.'
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    
+                    ';
+                    ?>
+
+                </fieldset>
+
+                <fieldset>
+                    
                     <div class="container">
                         <div class="text-container">
-                            <div class="container-content">
-                                '.$descriptionPage.'
+                            <div class="contaier-content">
+                                <fieldset>
+                                    <legend> Nos informations </legend>
+                               
+                                    <table border="2px" align="center">
+                                        <tr>
+                                            <th> ID </th>
+                                            <th> Name </th>
+                                            <th> Email </th>
+                                            <th> Tel </th>
+                                            <th> Messages </th>
+                                        </tr>
+                                        <?php
+                                        if (empty($_SESSION['record']) && (isset($_POST['userName']))) {
+                                            array_push($_SESSION['record'], $_POST);
+                                        }
+                                        
+                                        if ((count($_SESSION['record']) > 0) && (!empty($_POST['userName'])))  {
+                                            $last_index = count($_SESSION['record'])-1;
+                                            if ($_SESSION['record'][$last_index] != $_POST) {
+                                                echo'<span style="color:red">'.$last_index.'<span>';
+                                                array_push($_SESSION['record'], $_POST);
+                                            }  
+                                        }
+
+                                        if (count($_SESSION['record']) < 1) {
+                                            echo'
+                                            <tr>
+                                                <td colspan="5" style="text-align:center"> No record </td>
+                                            </tr>';
+                                        } else {
+                                            foreach($_SESSION['record'] as $id => $user) {
+                                                echo"
+                                                <tr>
+                                                    <td>".$id."</td>
+                                                    <td>".$user['userName']."</td>
+                                                    <td>".$user['destEmail']."</td>
+                                                    <td>".$user['userTel']."</td>
+                                                    <td>".$user['userMessage']."</td>
+                                                ";
+                                            }
+                                        }
+                                        ?>
+                                    </table>
+                                </fieldset>
                             </div>
                         </div>
                     </div>
-                    ';
-                    ?>
                     <div class="container"  id="formulaire">
-                        <form action="./pages/getForm.php" method="POST">
+                        <form action="" method="POST">
                             <label for="userName"> Name </label>
-                            <input type="text" name="userName" id="userName" placeholder="Entrez votre nom">
+                            <input type="text" name="userName" id="userName" placeholder="Entrez votre nom" required>
 
                             <label for="destEmail"> Email </label>
-                            <input type="email" name="destEmail" id="destEmail" placeholder="Entrez votre mail">
+                            <input type="email" name="destEmail" id="destEmail" placeholder="Entrez votre mail" required>
                             
-                            <label for="mailObject"> Téléphone </label>
-                            <input type="text" name="userTel" id="userTel" placeholder="Entrez votre numéro de téléphone">
+                            <label for="userTel"> Téléphone </label>
+                            <input type="text" name="userTel" id="userTel" placeholder="Entrez votre numéro de téléphone" required>
 
                             <label for="mailObject"> Objet </label>
                             <input type="text" name="mailObject" id="mailObject" placeholder="Entrez l'objet de votre message">
                             
                             <label for="userMessage"> Messages </label>
-                            <textarea name="userMessage" id="userMessage" cols="30" rows="10" placeholder="Entrez votre message ici..."></textarea>
+                            <textarea name="userMessage" id="userMessage" cols="30" rows="10" placeholder="Entrez votre message ici..." required></textarea>
                             
                             <div class="confidentCheck"><input type="checkbox" name="confidentiality" id="confidentiality" required> Accepter la confidentialité </div>
                             
@@ -122,3 +185,9 @@
     </div>
 </body>
 </html>
+
+<?php
+    else :
+        header('location: ../index.php');
+    endif;
+?>

@@ -1,5 +1,8 @@
 <?php
     session_start();
+        if ((isset($_SESSION['userName'])) && ($_SESSION['userName'] != '')):
+            header('location: pages/home.php');
+        else :
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +32,14 @@
             <div class="content loginPages">
                 <fieldset>
                     <legend> Login pages </legend>
+                    <?php
+                        if (isset($_SESSION['loginError']) && ($_SESSION['loginError'] == 1)) {
+                            echo
+                            '
+                            <p style="text-align:center; color:red> ERROR LOGIN </p>
+                            ';
+                        }
+                    ?>
                     <div class="container"  id="menu_1">
                         <form action="assets/login.php" method="post">
                             <label for="userName"> Username </label>
@@ -52,3 +63,7 @@
     </div>
 </body>
 </html>
+
+<?php
+    endif;
+?>

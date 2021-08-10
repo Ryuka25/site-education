@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if ($_SESSION['userName'] != ''):
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +44,7 @@
                     <li><a href="pages/speciality.php">Spécialité</a></li>
                     <li><a href="pages/contact.php">Contact</a></li>
                     <li><a href="pages/blog.php">Blog</a></li>
+                    <li><a href="pages/cv.php">C_V</a></li>
                 </ul>
             </div>
         </div>
@@ -53,7 +55,7 @@
 
             <div class="sideNav">
                 <ul>
-                    <li><a href="pages/contact.php#formulaire">Formulaire</a></li>
+                    <li><a href="pages/contact.php#formulaire">rohy toy</a></li>
                 </ul>
             </div>
 
@@ -164,3 +166,9 @@
     </div>
 </body>
 </html>
+
+<?php
+    else :
+        header('location: ../index.php');
+    endif;
+?>
