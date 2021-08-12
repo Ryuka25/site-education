@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Contact - Site éducation</title>
+    <title>Blog - Site éducation</title>
 </head>
 <body>
     <div class="page">
@@ -52,36 +52,107 @@
 
         <!--!Contenu du page-->
 
+        <?php
+
+        // Connection à la base de donnée
+        $connection = mysqli_connect('localhost', 'admin', 'adminpass', 'info_253');
+
+        // Selection des posts
+        $post_select = "SELECT * FROM posts ORDER BY id DESC;";
+
+        // Query POST
+        
+        if ((isset($_POST['title'])) && ($_POST['title'] != '')) {
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $createdat = date('Y-m-d H:i:s');
+
+            // insertion des données
+
+            $post_add = " INSERT INTO posts (title, content, createdat) VALUES ('".$title."','".$content."','".$createdat."') ;";
+
+            $connection->query($post_add);
+        }
+        
+
+        function blog_link($connection,$post_select){
+                // Execution de la requête $post_select
+            $posts_result = $connection->query($post_select);
+            
+            while ($posts_sideNav = mysqli_fetch_array($posts_result)) {
+                echo'
+                <li>
+                    <a href="pages/blog.php#'.$posts_sideNav['id'].'">'.$posts_sideNav['title'].'</a>
+                </li>
+                ';
+            }
+        }
+
+        function blog_posts($connection,$post_select){
+            
+
+            // Execution de la requête $post_select
+            $posts_result = $connection->query($post_select);
+                        
+            while ($posts = mysqli_fetch_array($posts_result)) {
+                echo
+                '
+                <div class="container"  id="'.$posts['id'].'">
+                    <div class="text-container">
+                        <div class="container-header">
+                            <h2>'.$posts['title'].'</h2>
+                        </div>
+                        <div>
+                            <p>============[ '.$posts['createdat'].' ]</p>                            </div>
+
+                        <div class="container-content">
+                            </p>'.$posts['content'].'</p>
+                        </div>
+                    </div>
+                </div>
+                ';
+            }
+        }
+        
+        ?>
+
         <div class="body ">
 
             <div class="sideNav">
                 <ul>
-                    <li><a href="pages/blog.php#june21">June 21</a></li>
+                    <li><a href="pages/blog.php#new_blog"> Add New Blog </a></li>
+                    <?php
+                        blog_link($connection,$post_select);
+                    ?>
+                    
                 </ul>
             </div>
 
             <div class="content">
-            <div class="container"  id="june21">
-                    <div class="image-container">
-                        <img src="assets/images/programmeur.jpg" alt=""/>
-                    </div>
-                    <div class="text-container">
-                        <div class="container-header">
-                            <h2> Blog du 21 June </h2>
-                        </div>
 
-                        <div class="container-content">
-                            <p>
-                                Lorem ipsum dolor sit amet,  consectetur adipiscing elit, cutie kha, love you yeah ! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                            <p>
-                                Cutie kha, love you yeah !Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
+                    <fieldset id="new_blog">
+                        <div class="container">
+                            <form method="POST">
+                                <label for="title"> Titre </label>
+                                <input type="text" name="title" id="title" placeholder="Entrez le titre du blog ..." required>
+
+                                <label for="content"> Posts </label>
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Entrez votre blog ici [Utilisez des balises HTML]..." required></textarea>
+                            
+                                <div class="formButton">
+                                    <input type="submit" value="POSTER">
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                </div>
+                    </fieldset>
+    
+                    <?php
+                        blog_posts($connection,$post_select);
+                    ?>
             </div>
         </div>
+
+
 
         <!--!Pied de page-->
 
