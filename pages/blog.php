@@ -60,7 +60,7 @@
         // Selection des posts
         $post_select = "SELECT * FROM posts ORDER BY id DESC;";
 
-        // Query POST
+        // Query POST ==> DATABASE
         
         if ((isset($_POST['title'])) && ($_POST['title'] != '')) {
             $title = $_POST['title'];
@@ -103,7 +103,7 @@
                             <h2>'.$posts['title'].'</h2>
                         </div>
                         <div>
-                            <p>============[ '.$posts['createdat'].' ]</p>                            </div>
+                            <p>= = = = = = = = = = = = [ '.$posts['createdat'].' ]</p>                            </div>
 
                         <div class="container-content">
                             </p>'.$posts['content'].'</p>

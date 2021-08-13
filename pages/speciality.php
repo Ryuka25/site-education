@@ -70,7 +70,7 @@
                         'nom' => 'specialite1',
                         'description' => 
                         '<p>
-                            Some text about specialite1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Some text about specialite1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>' ,                       
                         'photo' => 'assets/images/btp.jpg'
                     ),
@@ -88,7 +88,7 @@
                         'nom' => 'specialite3',
                         'description' => 
                         '<p>
-                            Some text about specialite3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Some text about specialite3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>' ,                       
                         'photo' => 'assets/images/historien.jpg'
                     ),
@@ -127,15 +127,6 @@
                             Some text about specialite7 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>' ,                       
                         'photo' => 'assets/images/btp.jpg'
-                    ),
-                    array (
-                        'id' => 'spec8',
-                        'nom' => 'specialite8',
-                        'description' => 
-                        '<p>
-                            Some text about specialite8 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>' ,                       
-                        'photo' => 'assets/images/pilote.jpg'
                     )
                 );
             ?>
@@ -176,7 +167,7 @@
                     ?>
 
                     <?php
-                        $numberColumn = 2;
+                        $numberColumn = 3;
                         echo
                         '
                         <table>
@@ -192,11 +183,11 @@
 
                                     <div class="text-container">
                                     
-                                        <div class="container-header">
+                                        <div class="container-header small">
                                             <h2> '.$specialite[$indexSpecialite]["nom"].' </h2>
                                         </div>
 
-                                        <div class="container-content">
+                                        <div class="container-content small">
                                             '.$specialite[$indexSpecialite]["description"].'
                                         </div>
                                     </div>    
