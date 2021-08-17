@@ -59,6 +59,16 @@ if ($_SESSION['userName'] != '') :
             <div class="body ">
 
                 <?php
+
+                //! *************************/
+                //! Récuperation variables  */
+                //! *************************/
+
+                $postExist = ((isset($_POST['persPost']) 
+                && (count($_POST['persPost']) >= 1)) 
+                && (isset($_POST['persLanguage']) 
+                && (count($_POST['persLanguage']) >= 1))); // Post is full
+
                 // Connection à la base de donnée
                 $connection = mysqli_connect('localhost', 'admin', 'adminpass', 'info_253');
 
@@ -72,67 +82,69 @@ if ($_SESSION['userName'] != '') :
                     while ($persons = mysqli_fetch_array($persons_result)) {
                         echo
                         '
-                    <td>' . $persons['id'] . '</td>
-                    <td>' . $persons['email'] . '</td>
-                    <td>' . $persons['name'] . '</td>
-                    <td>' . $persons['lastname'] . '</td>
-                    <td>' . $persons['old'] . '</td>
-                    <td>' . $persons['phoneNumber'] . '</td>
-                    <td>' . $persons['sexuality'] . '</td>
-                    <td>' . $persons['speciality'] . '</td>
-                    <td>' . $persons['language'] . '</td>
-                    <td>' . $persons['postSouhaite'] . '</td>
-                    <td>' . $persons['form_dateDebut'] . '</td>
-                    <td>' . $persons['form_dateFin'] . '</td>
-                    <td>' . $persons['form_nomEcole'] . '</td>
-                    <td>' . $persons['form_title'] . '</td>
-                    <td>' . $persons['exp_dateDebut'] . '</td>
-                    <td>' . $persons['exp_dateFin'] . '</td>
-                    <td>' . $persons['exp_nomEntreprise'] . '</td>
-                    <td>' . $persons['exp_title'] . '</td>
-                    <td>' . $persons['loisirs'] . '</td>
-                    <td><div class="button"><a href=""> Get CV </a></div></td>
-                    ';
+                        <tr>
+                            <td>' . $persons['id'] . '</td>
+                            <td>' . $persons['email'] . '</td>
+                            <td>' . $persons['name'] . '</td>
+                            <td>' . $persons['lastname'] . '</td>
+                            <td>' . $persons['old'] . '</td>
+                            <td>' . $persons['phoneNumber'] . '</td>
+                            <td>' . $persons['sexuality'] . '</td>
+                            <td>' . $persons['speciality'] . '</td>
+                            <td>' . $persons['language'] . '</td>
+                            <td>' . $persons['postSouhaite'] . '</td>
+                            <td>' . $persons['form_dateDebut'] . '</td>
+                            <td>' . $persons['form_dateFin'] . '</td>
+                            <td>' . $persons['form_nomEcole'] . '</td>
+                            <td>' . $persons['form_title'] . '</td>
+                            <td>' . $persons['exp_dateDebut'] . '</td>
+                            <td>' . $persons['exp_dateFin'] . '</td>
+                            <td>' . $persons['exp_nomEntreprise'] . '</td>
+                            <td>' . $persons['exp_title'] . '</td>
+                            <td>' . $persons['loisirs'] . '</td>
+                            <td><div class="button"><a href=""> Get CV </a></div></td>
+                        </tr>
+                        ';
                     }
                 }
 
-                //! *************************/
-                //! Récuperation variables  */
-                //! *************************/
-
                 function adding_persons($connection)
                 {
-                    if (isset($_POST['persPost']) && (count($_POST['persPost']) >= 1)) {
-                        if (isset($_POST['persLanguage']) && (count($_POST['persLanguage']) >= 1)) {
-                            $email = $_POST['persEmail'];
-                            $name = $_POST['persName'];
-                            $lastname = $_POST['persLastName'];
-                            $old = $_POST['persOld'];
-                            $phoneNumber = $_POST['persPhoneNumber'];
-                            $sexuality = $_POST['persSex'];
-                            $speciality = $_POST['persSpeciality'];
-                            $language = implode(",", $_POST['persLanguage']);
-                            $postSouhaite = implode(",",$_POST['persPost']);
-                            $form_dateDebut = $_POST['persForm_dateDebut'];
-                            $form_dateFin = $_POST['persForm_dateFin'];
-                            $form_nomEcole = $_POST['persForm_schoolName'];
-                            $form_title = $_POST['persForm_title'];
-                            $exp_dateDebut = $_POST['persExp_dateDebut'];
-                            $exp_dateFin = $_POST['persExp_dateFin'];
-                            $exp_nomEntreprise = $_POST['persExp_entrepriseName'];
-                            $exp_title = $_POST['persExp_title'];
-                            $loisirs = $_POST['persLoisir'];
+                    $email = $_POST['persEmail'];
+                    $name = $_POST['persName'];
+                    $lastname = $_POST['persLastName'];
+                    $old = $_POST['persOld'];
+                    $phoneNumber = $_POST['persPhoneNumber'];
+                    $sexuality = $_POST['persSex'];
+                    $speciality = $_POST['persSpeciality'];
+                    $language = implode(",", $_POST['persLanguage']);
+                    $postSouhaite = implode(",",$_POST['persPost']);
+                    $form_dateDebut = $_POST['persForm_dateDebut'];
+                    $form_dateFin = $_POST['persForm_dateFin'];
+                    $form_nomEcole = $_POST['persForm_schoolName'];
+                    $form_title = $_POST['persForm_title'];
+                    $exp_dateDebut = $_POST['persExp_dateDebut'];
+                    $exp_dateFin = $_POST['persExp_dateFin'];
+                    $exp_nomEntreprise = $_POST['persExp_entrepriseName'];
+                    $exp_title = $_POST['persExp_title'];
+                    $loisirs = $_POST['persLoisir'];
 
-                            $adding_pers_querry =
-                            "
-                            INSERT INTO `persons` (`id`, `name`, `lastname`, `old`, `email`, `phoneNumber`, `sexuality`, `speciality`, `language`, `postSouhaite`, `form_dateDebut`, `form_dateFin`, `form_nomEcole`, `form_title`, `exp_dateDebut`, `exp_dateFin`, `exp_nomEntreprise`, `exp_title`, `loisirs`)
-                            VALUES (NULL, '".$name."', '".$lastname."', '".$old."', '".$email."', '".$phoneNumber."', '".$sexuality."', '".$speciality."', '".$language."', '".$postSouhaite."', '".$form_dateDebut."', '".$form_dateFin."', '".$form_nomEcole."', '".$form_title."', '".$exp_dateDebut."', '".$exp_dateFin."', '".$exp_nomEntreprise."', '".$exp_title."', '".$loisirs."') 
-                            ";
+                    $adding_pers_querry =
+                    "
+                    INSERT INTO `persons` (`id`, `name`, `lastname`, `old`, `email`, `phoneNumber`, `sexuality`, `speciality`, `language`, `postSouhaite`, `form_dateDebut`, `form_dateFin`, `form_nomEcole`, `form_title`, `exp_dateDebut`, `exp_dateFin`, `exp_nomEntreprise`, `exp_title`, `loisirs`) 
+                    VALUES (NULL, '".$name."', '".$lastname."', '".$old."', '".$email."', '".$phoneNumber."', '".$sexuality."', '".$speciality."', '".$language."', '".$postSouhaite."', '".$form_dateDebut."', '".$form_dateFin."', '".$form_nomEcole."', '".$form_title."', '".$exp_dateDebut."', '".$exp_dateFin."', '".$exp_nomEntreprise."', '".$exp_title."', '".$loisirs."');
+                    ";
 
-                            $connection->query($adding_pers_querry);
+                    $connection->query($adding_pers_querry);
 
-                            echo '<p style="color:green> ADDING TO DATABASE </p>';
-                        }
+                }
+
+                if (isset($_POST)) {
+                    if ($postExist) {
+                        adding_persons($connection); // Mise à jour et ajout dans la base de donnée
+                        $adding_querry_executed = true;
+                    } else {
+                        $adding_querry_executed = false;
                     }
                 }
                 ?>
@@ -142,6 +154,43 @@ if ($_SESSION['userName'] != '') :
 
                         <fieldset>
                             <legend> Nos personnels </legend>
+                            <?php
+                                if (isset($_POST) && $postExist) {
+                                    if ($adding_querry_executed) {
+                                        echo '<div style="color:green"><p>NEW PERS ADDING TO DATABASE </p></div>';
+                                        
+                                        /*
+                                        echo "<pre>";
+                                        var_dump($email);
+                                        var_dump($name);
+                                        var_dump($lastname);
+                                        var_dump($old);
+                                        var_dump($phoneNumber);
+                                        var_dump($sexuality);
+                                        var_dump($speciality);
+                                        var_dump($language);
+                                        var_dump($postSouhaite);
+                                        var_dump($form_dateDebut);
+                                        var_dump($form_dateFin);
+                                        var_dump($form_nomEcole);
+                                        var_dump($form_title);
+                                        var_dump($exp_dateDebut);
+                                        var_dump($exp_dateFin);
+                                        var_dump($exp_nomEntreprise);
+                                        var_dump($exp_title);
+                                        var_dump($loisirs);
+                                        echo "</pre>";
+                    
+                                        echo "<pre>";
+                                        var_dump($_POST);
+                                        echo "</pre>";
+                                        */
+                            
+                                    } else {
+                                        echo '<div style="color:red"><p> NOTHING ADDED TO DATABASE </p></div>';
+                                    }
+                                }
+                            ?>
 
                             <table border="2px">
                                 <tr>
@@ -173,11 +222,9 @@ if ($_SESSION['userName'] != '') :
                                 <tr>
 
                                 </tr>
-                                <tr>
-                                    <?php
+                                <?php
                                     persons_list($connection, $person_select);
-                                    ?>
-                                </tr>
+                                ?>
                             </table>
                         </fieldset>
                     </div>
@@ -209,9 +256,9 @@ if ($_SESSION['userName'] != '') :
 
                                                 <label for="persSex"> Sexuality </label>
                                                 <select name="persSex" id="persSex">
-                                                    <option name="persSex" id="persSex" value="m"> Man </option>
-                                                    <option name="persSex" id="persSex" value="w"> Woman </option>
-                                                    <option name="persSex" id="persSex" value="r"> Root </option>
+                                                    <option name="persSex" id="persSex" value="man"> Man </option>
+                                                    <option name="persSex" id="persSex" value="woman"> Woman </option>
+                                                    <option name="persSex" id="persSex" value="root"> Root </option>
                                                 </select>
 
                                                 <label for="persSpeciality"> Speciality </label>
@@ -239,10 +286,10 @@ if ($_SESSION['userName'] != '') :
                                             <fieldset>
                                                 <legend> Formation Professionelle </legend>
                                                 <label for="persForm_dateDebut"> Date de début de la formation </label>
-                                                <input type="date" name="persForm_DateDebut" id="persForm_DateDebut" required>
+                                                <input type="date" name="persForm_dateDebut" id="persForm_DateDebut" required>
 
                                                 <label for="persForm_dateFin"> Date de fin de la formation </label>
-                                                <input type="date" name="persForm_DateFin" id="persForm_DateFin" required>
+                                                <input type="date" name="persForm_dateFin" id="persForm_DateFin" required>
 
                                                 <label for="persForm_schoolName"> Nom de l'école </label>
                                                 <input type="text" name="persForm_schoolName" id="persForm_schoolName" placeholder="Enter your school name here ..." required>
@@ -254,10 +301,10 @@ if ($_SESSION['userName'] != '') :
                                             <fieldset>
                                                 <legend> Experience Professionelle </legend>
                                                 <label for="persExp_dateDebut"> Date de début </label>
-                                                <input type="date" name="persExp_DateDebut" id="persExp_DateDebut" required>
+                                                <input type="date" name="persExp_dateDebut" id="persExp_DateDebut" required>
 
                                                 <label for="persExp_dateFin"> Date de fin</label>
-                                                <input type="date" name="persExp_DateFin" id="persExp_DateFin" required>
+                                                <input type="date" name="persExp_dateFin" id="persExp_DateFin" required>
 
                                                 <label for="persExp_entrepriseName"> Nom de l'entreprise </label>
                                                 <input type="text" name="persExp_entrepriseName" id="persExp_entrepriseName" placeholder="Enter your entreprise name here ..." required>
